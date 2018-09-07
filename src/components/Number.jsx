@@ -5,7 +5,7 @@ import _ from 'lodash'
 const Number = (props) =>{
 
 const numberClassName = (number) =>{
-  if(props.selectedNumber.indexOf(number) >= 0){
+  if(props.selectedNumbers.indexOf(number) >= 0){
     return 'selected';
   }
 }

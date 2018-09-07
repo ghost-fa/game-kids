@@ -8,33 +8,41 @@ import Number from './Number'
 class Game extends Component{
 
     state={
-      selectedNumber:[],
+      selectedNumbers:[],
       rendomNumberOfStars : 1 + Math.floor( Math.random()*9),
     }
 
     selectNumber = (clickedNumber) =>{
-      if(this.state.selectedNumber.indexOf(clickedNumber) >= 0) return;
+      if(this.state.selectedNumbers.indexOf(clickedNumber) >= 0) {return;}
       this.setState(prevState => ({
-        selectedNumber:prevState.selectedNumber.concat(clickedNumber)
+        selectedNumbers:prevState.selectedNumbers.concat(clickedNumber)
       }));
-    }
+    };
 
+unselectNumber = (clickedNumber) => {
+  this.setState(prevState => ({
+    selectedNumbers: prevState.selectedNumbers.filter(number => number !== clickedNumber)
+  }));
+};
   render(){
+    const { selectedNumbers, randomNumberOfStars} = this.state
     return(
       <Fragment>
         <main className="container">
       <h1>Play Nine</h1>
       <hr />
       <div className="row">
-    <Stars numberOfStars={this.state.randomNumberOfStars}/>
+    <Stars numberOfStars={randomNumberOfStars}/>
     <Button />
-    <Answer selectedNumber={this.state.selectedNumber}/>
+    <Answer
+      selectedNumbers={selectedNumbers}
+      unselectNumber={this.unselectNumber}/>
 
     </div>
     <br />
 
     <Number
-      selectedNumber={this.state.selectedNumber}
+      selectedNumbers={selectedNumbers}
     selectNumber={this.selectNumber}/>
     </main>
   </Fragment>

@@ -5,11 +5,7 @@ import _ from 'lodash'
 
 
 const Stars = (props) =>{
-  //const numberOfStars = 1 + Math.floor( Math.random()*9);
-  // let stars = [];
-  // for (let i=0; i<numberOfStars; i++){
-  //   stars.push(<FontAwesomeIcon key={i}   icon={faStar}/>)
-  // }
+
   return  (
     <div className="col-5">
 
