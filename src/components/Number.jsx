@@ -1,18 +1,16 @@
 import React,  { Fragment } from 'react';
-
+import _ from 'lodash'
 
 
 const Number = () =>{
+  const arrayOfNumbers = _.range(1, 10);
 
     return(
       <Fragment>
         <main className="card text-Center">
           <div>
-               <span>1</span>
-               <span className="selected">2</span>
-               <span className="used">3</span>
-               <span>4</span>
-               <span>5</span>
+              {arrayOfNumbers.map((number,i) => (
+              <span key={i}>{number}</span>))}
           </div>
     </main>
   </Fragment>
