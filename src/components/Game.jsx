@@ -5,6 +5,11 @@ import Answer from '../views/Answer'
 import Number from './Number'
 
 class Game extends Component{
+
+    state={
+      selectedNumber:[2, 4]
+    }
+
   render(){
     return(
       <Fragment>
@@ -14,11 +19,11 @@ class Game extends Component{
       <div className="row">
     <Stars />
     <Button />
-    <Answer />
+    <Answer selectedNumber={this.state.selectedNumber}/>
 
     </div>
     <br />
-    <Number />
+    <Number selectedNumber={this.state.selectedNumber}/>
     </main>
   </Fragment>
 )
