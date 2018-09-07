@@ -14,7 +14,9 @@ const numberClassName = (number) =>{
         <main className="card text-Center">
           <div>
               {numbersList.map((number,i) => (
-              <span key={i} className={numberClassName(number)}>{number}</span>))}
+              <span key={i}
+                className={numberClassName(number)}
+                onClick={ () => props.selectNumber(number)} >{number}</span>))}
           </div>
     </main>
   </Fragment>

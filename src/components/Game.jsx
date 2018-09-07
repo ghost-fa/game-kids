@@ -4,10 +4,17 @@ import Button from '../views/Button'
 import Answer from '../views/Answer'
 import Number from './Number'
 
+
 class Game extends Component{
 
     state={
-      selectedNumber:[2, 4]
+      selectedNumber:[]
+    }
+
+    selectNumber = (clickedNumber) =>{
+      this.setState(prevState => ({
+        selectedNumber:prevState.selectedNumber.concat(clickedNumber)
+      }));
     }
 
   render(){
@@ -23,7 +30,10 @@ class Game extends Component{
 
     </div>
     <br />
-    <Number selectedNumber={this.state.selectedNumber}/>
+
+    <Number
+      selectedNumber={this.state.selectedNumber}
+    selectNumber={this.selectNumber}/>
     </main>
   </Fragment>
 )
