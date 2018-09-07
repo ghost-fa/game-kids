@@ -10,6 +10,7 @@ class Game extends Component{
     state={
       selectedNumbers:[],
       rendomNumberOfStars : 1 + Math.floor( Math.random()*9),
+      answerIsCorrect: null,
     }
 
     selectNumber = (clickedNumber) =>{
@@ -24,8 +25,19 @@ unselectNumber = (clickedNumber) => {
     selectedNumbers: prevState.selectedNumbers.filter(number => number !== clickedNumber)
   }));
 };
+
+
+checkAnswer = () =>{
+  this.setState(prevState => ({
+    answerIsCorrect:prevState.randomNumberOfStars === prevState.selectedNumbers.reduce((acc, n) => acc + n, 0)
+  }))
+}
   render(){
-    const { selectedNumbers, randomNumberOfStars} = this.state
+    const {
+      selectedNumbers,
+     randomNumberOfStars,
+      answerIsCorrect
+    } = this.state
     return(
       <Fragment>
         <main className="container">
@@ -33,7 +45,10 @@ unselectNumber = (clickedNumber) => {
       <hr />
       <div className="row">
     <Stars numberOfStars={randomNumberOfStars}/>
-    <Button selectedNumbers={selectedNumbers}/>
+    <Button
+      selectedNumbers={selectedNumbers}
+      checkAnswer={this.checkAnswer}
+      answerIsCorrect={answerIsCorrect}/>
     <Answer
       selectedNumbers={selectedNumbers}
       unselectNumber={this.unselectNumber}/>
