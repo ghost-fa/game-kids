@@ -17,6 +17,7 @@ class Game extends Component{
     <Answer />
 
     </div>
+    <br />
     <Number />
     </main>
   </Fragment>

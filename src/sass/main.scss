@@ -7,3 +7,28 @@ body {
 .header {
   margin-bottom: 1rem;
 }
+
+
+.fa-star{
+  margin: 0.5em;
+  font-size: 24px;
+}
+span{
+  display: inline-block;
+  margin: 0.5em;
+  text-align: center;
+  background: #ccc;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 24px;
+}
+.selected{
+background: #eee;
+color:#ddd;
+cursor: not-allowed;
+}
+.used{
+background: #aaddaa;
+color:#99bb99;
+cursor: not-allowed;
+}
