@@ -8,10 +8,12 @@ import Number from './Number'
 class Game extends Component{
 
     state={
-      selectedNumber:[]
+      selectedNumber:[],
+      rendomNumberOfStars : 1 + Math.floor( Math.random()*9),
     }
 
     selectNumber = (clickedNumber) =>{
+      
       this.setState(prevState => ({
         selectedNumber:prevState.selectedNumber.concat(clickedNumber)
       }));
@@ -24,7 +26,7 @@ class Game extends Component{
       <h1>Play Nine</h1>
       <hr />
       <div className="row">
-    <Stars />
+    <Stars numberOfStars={this.state.randomNumberOfStars}/>
     <Button />
     <Answer selectedNumber={this.state.selectedNumber}/>
 
