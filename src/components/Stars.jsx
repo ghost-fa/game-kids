@@ -4,15 +4,17 @@ import {faStar} from '@fortawesome/free-solid-svg-icons';
 
 
 
-const Stars = () =>{
+const Stars = (props) =>{
+  const numberOfStars = 5;
+  let stars = [];
+  for (let i=0; i<numberOfStars; i++){
+    stars.push(<FontAwesomeIcon key={i}   icon={faStar}/>)
+  }
   return  (
     <div className="col-5">
 
-      <FontAwesomeIcon   icon={faStar}/>
-      <FontAwesomeIcon  icon={faStar}/>
-      <FontAwesomeIcon  icon={faStar}/>
-      <FontAwesomeIcon  icon={faStar}/>
-      <FontAwesomeIcon  icon={faStar}/>
+      {stars}
+
     </div>
   )
 }
