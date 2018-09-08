@@ -12,6 +12,7 @@ class Game extends Component{
       randomNumberOfStars : 1 + Math.floor( Math.random()*9),
       usedNumbers: [],
       answerIsCorrect: null,
+      redraws:5,
 
     }
 
@@ -47,12 +48,13 @@ acceptAnswer = () =>{
 }
 
 redraw = () => {
-  this.setState({
+  if(this.state.redraws === 0 )return;
+  this.setState(prevState =>({
     randomNumberOfStars : 1 + Math.floor( Math.random()*9),
     answerIsCorrect : null,
     selectedNumbers:[],
-    redraws:5,
-  })
+    redraws: prevState.redraws - 1 ,
+  }))
 }
 
   render(){
