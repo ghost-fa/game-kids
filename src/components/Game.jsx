@@ -87,13 +87,16 @@ redraw = () => {
 
     </div>
     <br />
-
+    {doneStatus ?  <DoneFrame doneStatus={doneStatus}/> :
     <Number
       selectedNumbers={selectedNumbers}
     selectNumber={this.selectNumber}
     usedNumbers={usedNumbers}/>
 
-    <DoneFrame doneStatus={doneStatus}/>
+  }
+
+
+
     </main>
   </Fragment>
 )
