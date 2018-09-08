@@ -4,18 +4,21 @@ import {faCheck,faSyncAlt, faTimes} from '@fortawesome/free-solid-svg-icons';
 const Button = (props) =>{
   let button;
   switch (props.answerIsCorrect) {
+
     case true:
     button =
-    <button className='btn btn-success' onClick={props.acceptAnswer}>
-      <FontAwesomeIcon icon={faCheck}/>
-    </button>
+       <button className='btn btn-success' onClick={props.acceptAnswer}>
+          <FontAwesomeIcon icon={faCheck}/>
+       </button>
     break;
+
     case false:
     button =
-    <button className='btn btn-danger'>
-      <FontAwesomeIcon icon={faTimes}/>
-    </button>
+       <button className='btn btn-danger'>
+          <FontAwesomeIcon icon={faTimes}/>
+        </button>
       break;
+
     default:
     button =
       <button className='btn'
@@ -26,14 +29,13 @@ const Button = (props) =>{
   return (
     <div className="col-2 text-center">
         {button}
+        <button className="btn btn-warning btn-sm mt-3" onClick={props.redraw}  disabled={props.redraws === 0}>
 
-        <button className="btn btn-warning btn-sm mt-3" onClick={props.redraw} disabled={props.redraws === 0}>
-
-          <FontAwesomeIcon icon={faSyncAlt} />
-          {props.redraws}
-        </button>
-  </div>
-)
+               <FontAwesomeIcon icon={faSyncAlt} />
+           {props.redraws}
+         </button>
+    </div>
+  )
 }
 
 export default Button

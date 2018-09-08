@@ -3,29 +3,30 @@ import _ from 'lodash'
 
 
 const Number = (props) =>{
+  const NumbersList = _.range(1, 10);
+  const numberClassName = (number) =>{
 
-const numberClassName = (number) =>{
-  if(props.usedNumbers.indexOf(number) >= 0){
-    return 'used';
-  }
-  if(props.selectedNumbers.indexOf(number) >= 0){
-    return 'selected';
-  }
-};
+     if(props.usedNumbers.indexOf(number) >= 0){
+       return 'used';
+   }
+     if(props.selectedNumbers.indexOf(number) >= 0){
+       return 'selected';
+   }
+  };
     return(
       <Fragment>
         <main className="card text-Center">
           <div>
               {NumbersList.map((number,i) => (
               <span key={i}
-                className={numberClassName(number)}
-                onClick={ () => props.selectNumber(number)} >{number}</span>))}
+                 className={numberClassName(number)}
+                 onClick={ () => props.selectNumber(number)} >{number}</span>))}
           </div>
-    </main>
-  </Fragment>
-);
+       </main>
+     </Fragment>
+   );
 
 };
-let NumbersList = _.range(1, 10);
+
 
 export default Number
