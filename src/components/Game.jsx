@@ -4,8 +4,11 @@ import Button from '../views/Button'
 import Answer from '../views/Answer'
 import Number from './Number'
 import DoneFrame from '../views/DoneFrame'
+import _ from 'lodash'
 
 class Game extends Component{
+
+
     static randomNumber = () => 1 + Math.floor( Math.random()*9);
 
     state={
@@ -57,7 +60,22 @@ redraw = () => {
     redraws: prevState.redraws - 1 ,
   }))
 }
+possiblesSolutions = ({randomNumberOfStars, usedNumbers})=>{
+  const possibleNumbers = _.range(1, 10).filter(number => usedNumbers.indexOf(number) === - 1,
+)
+return possibleCombinationSum(possibleNumbers, randomNumberOfStars);
+}
 
+updateDoneStatus = () => {
+  this.setState(prevState => {
+    if(prevState.usedNumbers.length === 9){
+      return{doneStatus:'Done. Nice!'};
+    }
+    if(prevState.redraws === 0 && !this.possiblesSolutions(prevState)){
+      return {doneStatus: 'Game Over!'};
+    }
+  })
+}
   render(){
     const {
       selectedNumbers,
