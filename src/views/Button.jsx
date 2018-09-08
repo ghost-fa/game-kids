@@ -27,7 +27,8 @@ const Button = (props) =>{
     <div className="col-2 text-center">
         {button}
 
-        <button className="btn btn-warning btn-sm mt-3" onClick={props.redraw}>
+        <button className="btn btn-warning btn-sm mt-3" onClick={props.redraw} disabled={props.redraws === 0}>
+
           <FontAwesomeIcon icon={faSyncAlt} />
           {props.redraws}
         </button>
