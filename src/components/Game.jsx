@@ -38,7 +38,12 @@ checkAnswer = () =>{
 }
 
 acceptAnswer = () =>{
-
+ this.setState(prevState => ({
+   usedNumbers:prevState.usedNumbers.concat(prevState.selectedNumbers),
+   selectedNumbers:[],
+   answerIsCorrect:null,
+   randomNumberOfStars:1 + Math.floor( Math.random()*9),
+ }))
 }
 
   render(){
