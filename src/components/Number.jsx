@@ -13,7 +13,7 @@ const numberClassName = (number) =>{
       <Fragment>
         <main className="card text-Center">
           <div>
-              {numbersList.map((number,i) => (
+              {NumbersList.map((number,i) => (
               <span key={i}
                 className={numberClassName(number)}
                 onClick={ () => props.selectNumber(number)} >{number}</span>))}
@@ -23,6 +23,6 @@ const numberClassName = (number) =>{
 );
 
 };
-const numbersList = _.range(1, 10);
+let NumbersList = _.range(1, 10);
 
 export default Number
