@@ -3,7 +3,7 @@ import Stars from './Stars'
 import Button from '../views/Button'
 import Answer from '../views/Answer'
 import Number from './Number'
-
+import DoneFrame from '../views/DoneFrame'
 
 class Game extends Component{
     static randomNumber = () => 1 + Math.floor( Math.random()*9);
