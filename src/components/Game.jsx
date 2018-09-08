@@ -6,10 +6,11 @@ import Number from './Number'
 
 
 class Game extends Component{
+    static randomNumber = () => 1 + Math.floor( Math.random()*9);
 
     state={
       selectedNumbers:[],
-      randomNumberOfStars : 1 + Math.floor( Math.random()*9),
+      randomNumberOfStars : Game.randomNumber(),
       usedNumbers: [],
       answerIsCorrect: null,
       redraws:5,
@@ -43,14 +44,14 @@ acceptAnswer = () =>{
    usedNumbers:prevState.usedNumbers.concat(prevState.selectedNumbers),
    selectedNumbers:[],
    answerIsCorrect:null,
-   randomNumberOfStars:1 + Math.floor( Math.random()*9),
+   randomNumberOfStars:Game.randomNumber(),
  }))
 }
 
 redraw = () => {
   if(this.state.redraws === 0 )return;
   this.setState(prevState =>({
-    randomNumberOfStars : 1 + Math.floor( Math.random()*9),
+    randomNumberOfStars : Game.randomNumber(),
     answerIsCorrect : null,
     selectedNumbers:[],
     redraws: prevState.redraws - 1 ,
