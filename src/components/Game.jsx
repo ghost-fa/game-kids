@@ -91,10 +91,10 @@ class Game extends Component{
 
   return(
        <Fragment>
-             <main className="container">
+             <main className="container mt-5">
                    <h1>Play Nine</h1>
               <hr />
-             <div className="row">
+             <div className="row m-auto">
          <Stars numberOfStars={randomNumberOfStars}/>
 
          <Button
