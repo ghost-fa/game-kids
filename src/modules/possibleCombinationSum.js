@@ -1,4 +1,4 @@
-let possibleCombinationSum = function (arr, n){
+ const possibleCombinationSum = function (arr, n){
   if(arr.indexOf(n) >= 0)return true;
   if(arr[0] > n) return false;
   if(arr[arr.length -1] > n){
@@ -15,3 +15,5 @@ let possibleCombinationSum = function (arr, n){
     if(n === combinationSum) return true;
   }
 }
+
+export default possibleCombinationSum

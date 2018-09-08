@@ -5,11 +5,9 @@ import Answer from '../views/Answer'
 import Number from './Number'
 import DoneFrame from '../views/DoneFrame'
 import _ from 'lodash'
-import {possibleCombinationSum} from '../modules/possibleCombinationSum'
+import possibleCombinationSum from '../modules/possibleCombinationSum'
 
 class Game extends Component{
-
-
     static randomNumber = () => 1 + Math.floor( Math.random()*9);
 
     state={
@@ -49,7 +47,7 @@ acceptAnswer = () =>{
    selectedNumbers:[],
    answerIsCorrect:null,
    randomNumberOfStars:Game.randomNumber(),
- }))
+ }), this.updateDoneStatus)
 }
 
 redraw = () => {
@@ -59,13 +57,13 @@ redraw = () => {
     answerIsCorrect : null,
     selectedNumbers:[],
     redraws: prevState.redraws - 1 ,
-  }))
+  }),this.updateDoneStatus)
 }
 possiblesSolutions = ({randomNumberOfStars, usedNumbers})=>{
-  const possibleNumbers = _.range(1, 10).filter(number => usedNumbers.indexOf(number) === - 1,
-)
-return possibleCombinationSum(possibleNumbers, randomNumberOfStars);
-}
+  const possibleNumbers = _.range(1, 10).filter(number => usedNumbers.indexOf(number) === - 1
+);
+  return possibleCombinationSum(possibleNumbers, randomNumberOfStars);
+};
 
 updateDoneStatus = () => {
   this.setState(prevState => {
