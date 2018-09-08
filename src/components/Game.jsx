@@ -5,6 +5,7 @@ import Answer from '../views/Answer'
 import Number from './Number'
 import DoneFrame from '../views/DoneFrame'
 import _ from 'lodash'
+import {possibleCombinationSum} from '../modules/possibleCombinationSum'
 
 class Game extends Component{
 
