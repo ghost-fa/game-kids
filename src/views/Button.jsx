@@ -29,7 +29,7 @@ const Button = (props) =>{
   return (
     <div className="col-2 text-center">
         {button}
-        <button className="btn btn-warning btn-sm mt-3" onClick={props.redraw}  disabled={props.redraws === 0}>
+        <button className="btn btn-warning btn-sm ml-3" onClick={props.redraw}  disabled={props.redraws === 0}>
 
                <FontAwesomeIcon icon={faSyncAlt} />
            {props.redraws}
