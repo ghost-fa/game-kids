@@ -51,6 +51,7 @@ redraw = () => {
     randomNumberOfStars : 1 + Math.floor( Math.random()*9),
     answerIsCorrect : null,
     selectedNumbers:[],
+    redraws:5,
   })
 }
 
@@ -59,7 +60,8 @@ redraw = () => {
       selectedNumbers,
      randomNumberOfStars,
       answerIsCorrect,
-      usedNumbers
+      usedNumbers,
+      redraws
     } = this.state
     return(
       <Fragment>
@@ -70,6 +72,7 @@ redraw = () => {
     <Stars numberOfStars={randomNumberOfStars}/>
     <Button
       selectedNumbers={selectedNumbers}
+      redraws={redraws}
       acceptAnswer={this.acceptAnswer}
       checkAnswer={this.checkAnswer}
       redraw={this.redraw}
