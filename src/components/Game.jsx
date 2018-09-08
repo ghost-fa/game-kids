@@ -14,7 +14,7 @@ class Game extends Component{
       usedNumbers: [],
       answerIsCorrect: null,
       redraws:5,
-
+      doneStatus : 'Game over!',
     }
 
     selectNumber = (clickedNumber) =>{
@@ -64,7 +64,8 @@ redraw = () => {
      randomNumberOfStars,
       answerIsCorrect,
       usedNumbers,
-      redraws
+      redraws,
+      doneStatus,
     } = this.state
     return(
       <Fragment>
@@ -91,6 +92,8 @@ redraw = () => {
       selectedNumbers={selectedNumbers}
     selectNumber={this.selectNumber}
     usedNumbers={usedNumbers}/>
+
+    <DoneFrame doneStatus={doneStatus}/>
     </main>
   </Fragment>
 )
