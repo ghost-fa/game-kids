@@ -10,8 +10,9 @@ class Game extends Component{
     state={
       selectedNumbers:[],
       randomNumberOfStars : 1 + Math.floor( Math.random()*9),
+      usedNumbers: [],
       answerIsCorrect: null,
-      usedNumbers: [4.7],
+
     }
 
     selectNumber = (clickedNumber) =>{
