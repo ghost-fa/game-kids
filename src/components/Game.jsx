@@ -62,6 +62,7 @@ acceptAnswer = () =>{
     <Stars numberOfStars={randomNumberOfStars}/>
     <Button
       selectedNumbers={selectedNumbers}
+      acceptAnswer={this.acceptAnswer}
       checkAnswer={this.checkAnswer}
       answerIsCorrect={answerIsCorrect}/>
     <Answer
