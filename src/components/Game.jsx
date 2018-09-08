@@ -11,6 +11,7 @@ class Game extends Component{
       selectedNumbers:[],
       randomNumberOfStars : 1 + Math.floor( Math.random()*9),
       answerIsCorrect: null,
+      usedNumbers: [4.7],
     }
 
     selectNumber = (clickedNumber) =>{
@@ -34,11 +35,17 @@ checkAnswer = () =>{
     answerIsCorrect:prevState.randomNumberOfStars === prevState.selectedNumbers.reduce((acc, n) => acc + n, 0)
   }))
 }
+
+acceptAnswer = () =>{
+
+}
+
   render(){
     const {
       selectedNumbers,
      randomNumberOfStars,
-      answerIsCorrect
+      answerIsCorrect,
+      usedNumbers
     } = this.state
     return(
       <Fragment>
@@ -60,7 +67,8 @@ checkAnswer = () =>{
 
     <Number
       selectedNumbers={selectedNumbers}
-    selectNumber={this.selectNumber}/>
+    selectNumber={this.selectNumber}
+    usedNumbers={usedNumbers}/>
     </main>
   </Fragment>
 )
