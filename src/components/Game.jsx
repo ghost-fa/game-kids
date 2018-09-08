@@ -46,6 +46,14 @@ acceptAnswer = () =>{
  }))
 }
 
+redraw = () => {
+  this.setState({
+    randomNumberOfStars : 1 + Math.floor( Math.random()*9),
+    answerIsCorrect : null,
+    selectedNumbers:[],
+  })
+}
+
   render(){
     const {
       selectedNumbers,
@@ -64,6 +72,7 @@ acceptAnswer = () =>{
       selectedNumbers={selectedNumbers}
       acceptAnswer={this.acceptAnswer}
       checkAnswer={this.checkAnswer}
+      redraw={this.redraw}
       answerIsCorrect={answerIsCorrect}/>
     <Answer
       selectedNumbers={selectedNumbers}
