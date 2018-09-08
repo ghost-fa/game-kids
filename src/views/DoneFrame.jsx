@@ -5,7 +5,7 @@ const DoneFrame = (props) =>{
   return (
     <div className="text-center">
       <h2>{props.doneStatus}</h2>
-      <butoon className="btn btn-secondray" onClick={ () => props.resetGame}>Play Again</butoon>
+      <span className="btn btn-secondray" onClick={props.resetGame}>Play Again</span>
     </div>
   )
 }

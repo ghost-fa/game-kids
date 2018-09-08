@@ -9,15 +9,18 @@ import possibleCombinationSum from '../modules/possibleCombinationSum'
 
 class Game extends Component{
     static randomNumber = () => 1 + Math.floor( Math.random()*9);
-
-    state={
+    static initialState = () => ({
       selectedNumbers:[],
       randomNumberOfStars : Game.randomNumber(),
       usedNumbers: [],
       answerIsCorrect: null,
       redraws:5,
       doneStatus : null,
-    }
+    });
+    state = Game.initialState();
+
+    resetGame = () => this.setState(Game.initialState());
+
 
     selectNumber = (clickedNumber) =>{
       if(this.state.selectedNumbers.indexOf(clickedNumber) >= 0) {return;}
@@ -47,7 +50,7 @@ acceptAnswer = () =>{
    selectedNumbers:[],
    answerIsCorrect:null,
    randomNumberOfStars:Game.randomNumber(),
- }), this.updateDoneStatus)
+ }), this.updateDoneStatus);
 }
 
 redraw = () => {
@@ -57,7 +60,7 @@ redraw = () => {
     answerIsCorrect : null,
     selectedNumbers:[],
     redraws: prevState.redraws - 1 ,
-  }),this.updateDoneStatus)
+  }),this.updateDoneStatus);
 }
 possiblesSolutions = ({randomNumberOfStars, usedNumbers})=>{
   const possibleNumbers = _.range(1, 10).filter(number => usedNumbers.indexOf(number) === - 1
@@ -104,7 +107,7 @@ updateDoneStatus = () => {
 
     </div>
     <br />
-    {doneStatus ?  <DoneFrame doneStatus={doneStatus}/> :
+    {doneStatus ?  <DoneFrame resetGame={this.resetGame} doneStatus={doneStatus}/> :
     <Number
       selectedNumbers={selectedNumbers}
     selectNumber={this.selectNumber}
