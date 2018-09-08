@@ -1,7 +1,6 @@
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import {faCheck, faTimes} from '@fortawesome/free-solid-svg-icons';
-
+import {faCheck,faSyncAlt, faTimes} from '@fortawesome/free-solid-svg-icons';
 const Button = (props) =>{
   let button;
   switch (props.answerIsCorrect) {
@@ -25,8 +24,12 @@ const Button = (props) =>{
       break;
   }
   return (
-    <div className="col-2">
+    <div className="col-2 text-center">
         {button}
+
+        <button className="btn btn-warning btn-sm mt-3">
+          <FontAwesomeIcon icon={faSyncAlt} />
+        </button>
   </div>
 )
 }
