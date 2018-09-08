@@ -14,7 +14,7 @@ class Game extends Component{
       usedNumbers: [],
       answerIsCorrect: null,
       redraws:5,
-      doneStatus : 'Game over!',
+      doneStatus : null,
     }
 
     selectNumber = (clickedNumber) =>{
